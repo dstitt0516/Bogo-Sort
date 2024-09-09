@@ -1,0 +1,42 @@
+function bgs() {
+    let min = -100;
+    let max = 100;
+    let range = 0;
+    let start = 0;
+    let retries =0;
+    let number_counter = 0;
+    let number_counter2 = 1;
+    let numbers_in_array = [];
+
+    while (range < 7) {
+        let random_number = Math.floor(Math.random() * (max - min + 1)) + min;
+        numbers_in_array.push(random_number);
+        range++; 
+    }
+    let condition = numbers_in_array.length - 1;
+    let shuffledArr;
+
+    while (start < condition){
+        if (numbers_in_array[number_counter] <= numbers_in_array[number_counter2]) {
+            number_counter++;
+            number_counter2++;
+            start++;
+            }
+        else if (numbers_in_array[number_counter] > numbers_in_array[number_counter2]) { 
+            number_counter = 0;
+            number_counter2 = 1;
+            shuffledArr = numbers_in_array.sort(() => Math.random() - 0.5);
+            console.log(retries);
+            retries++;
+            start = 0;
+            
+
+
+        }
+    }
+
+    console.log(shuffledArr);
+    console.log("total retries:", retries);
+}
+
+bgs();
