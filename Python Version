@@ -1,0 +1,31 @@
+import random
+
+def postion_checker():
+
+    start = 0
+    retries = 0
+    number_counter = 0
+    number_counter2 = 1
+    numbers_in_array = []
+    for i in range(7):
+        num = random.randint(-100, 100)
+        numbers_in_array.append(num)
+
+    while start < len(numbers_in_array) - 1:
+
+        if numbers_in_array[number_counter] <= numbers_in_array[number_counter2]:
+            number_counter += 1
+            number_counter2 += 1
+            start += 1
+        elif numbers_in_array[number_counter] > numbers_in_array[number_counter2]:
+           number_counter = 0
+           number_counter2 = 1
+           random.shuffle(numbers_in_array)
+           numbers_in_array[number_counter]
+           retries += 1
+           start -= start
+        
+    print(numbers_in_array)
+    print("total retries:", retries)
+
+postion_checker()
